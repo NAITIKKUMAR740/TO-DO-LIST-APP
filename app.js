@@ -2,7 +2,7 @@ const addTodoBtn = document.getElementById("addTodoBtn");
 
 const inputTag = document.getElementById("todoInput");
 const todoListul = document.getElementById("todoList");
-const cleantodo = document.getElementById("clearCompletedBtn");
+const cleanTodo = document.getElementById("clearCompletedBtn");
 
 
 
@@ -70,12 +70,11 @@ addTodoBtn.addEventListener("click", () => {
     addtodos();
 });
 
-cleantodo.addEventListener("click", () => {
-    localStorage.clear()
-
-
-})
-
+cleanTodo.addEventListener("click", () => {
+    todos = todos.filter(todo => !todo.isCompleted);
+    localStorage.setItem("todos", JSON.stringify(todos));
+    addtodos();
+});
 
 
 
